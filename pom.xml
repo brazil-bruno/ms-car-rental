@@ -18,6 +18,7 @@
     <modules>
         <module>ms-customer</module>
         <module>ms-car</module>
+        <module>ms-rental-order</module>
     </modules>
 
     <properties>
