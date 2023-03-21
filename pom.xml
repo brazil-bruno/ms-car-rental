@@ -17,6 +17,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>ms-customer</module>
+        <module>ms-car</module>
     </modules>
 
     <properties>
