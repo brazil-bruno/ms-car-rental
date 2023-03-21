@@ -1,0 +1,2 @@
+INSERT INTO tb_customer (full_Name, phone_Number, age, address) VALUES ('Bob Green', '+582 997854312', 32, 'John Mayer Street, 57');
+INSERT INTO tb_customer (full_Name, phone_Number, age, address) VALUES ('Maria Morrisson', '+397 885697361', 23, 'Oliver Street, 530');
