@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ms-customer" />
+        <module name="ms-eureka-server" />
         <module name="ms-car" />
         <module name="ms-rental-order" />
       </profile>
@@ -17,6 +18,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ms-car" options="-parameters" />
       <module name="ms-customer" options="-parameters" />
+      <module name="ms-eureka-server" options="-parameters" />
       <module name="ms-rental-order" options="-parameters" />
     </option>
   </component>
