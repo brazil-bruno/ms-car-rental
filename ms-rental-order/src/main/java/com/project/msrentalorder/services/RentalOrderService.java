@@ -3,10 +3,12 @@ package com.project.msrentalorder.services;
 import com.project.msrentalorder.entities.Car;
 import com.project.msrentalorder.entities.Customer;
 import com.project.msrentalorder.entities.RentalOrder;
+import com.project.msrentalorder.event.RentalOrderEvent;
 import com.project.msrentalorder.feignclients.CarFeignClient;
 import com.project.msrentalorder.feignclients.CustomerFeignClient;
 import com.project.msrentalorder.repositories.RentalOrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +24,8 @@ public class RentalOrderService {
     private final CarFeignClient carFeignClient;
 
     private final CustomerFeignClient customerFeignClient;
+
+    private final KafkaTemplate<String, RentalOrderEvent> kafkaTemplate;
 
     @Transactional(readOnly = true)
     public List<RentalOrder> findAllRentalsOrders() {
@@ -49,6 +53,8 @@ public class RentalOrderService {
         rentalOrder.setTotalPrice(car.getPrice() * rentalOrderRequest.getQuantityOfDays());
 
         rentalOrderRepository.save(rentalOrder);
+
+        kafkaTemplate.send("notificationTopic", new RentalOrderEvent("" + rentalOrder.getRentalOrderCode()));
 
         return rentalOrder;
     }
