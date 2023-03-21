@@ -21,6 +21,7 @@
         <module>ms-rental-order</module>
         <module>ms-eureka-server</module>
         <module>ms-notification</module>
+        <module>ms-api-gateway</module>
     </modules>
 
     <properties>
