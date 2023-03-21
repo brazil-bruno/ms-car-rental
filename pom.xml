@@ -20,6 +20,7 @@
         <module>ms-car</module>
         <module>ms-rental-order</module>
         <module>ms-eureka-server</module>
+        <module>ms-notification</module>
     </modules>
 
     <properties>
