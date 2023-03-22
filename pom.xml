@@ -22,6 +22,7 @@
         <module>ms-eureka-server</module>
         <module>ms-notification</module>
         <module>ms-api-gateway</module>
+        <module>ms-user</module>
     </modules>
 
     <properties>
