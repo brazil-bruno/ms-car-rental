@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ms-oauth" />
         <module name="ms-notification" />
         <module name="ms-customer" />
         <module name="ms-eureka-server" />
@@ -24,6 +25,7 @@
       <module name="ms-customer" options="-parameters" />
       <module name="ms-eureka-server" options="-parameters" />
       <module name="ms-notification" options="-parameters" />
+      <module name="ms-oauth" options="-parameters" />
       <module name="ms-rental-order" options="-parameters" />
       <module name="ms-user" options="-parameters" />
     </option>

@@ -23,6 +23,7 @@
         <module>ms-notification</module>
         <module>ms-api-gateway</module>
         <module>ms-user</module>
+        <module>ms-oauth</module>
     </modules>
 
     <properties>
