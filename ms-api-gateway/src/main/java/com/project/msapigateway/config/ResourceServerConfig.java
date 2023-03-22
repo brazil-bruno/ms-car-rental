@@ -29,7 +29,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     private static final String[] OPERATOR = {"/ms-car/**", "/ms-customer/**", "ms-rental-order/**"};
 
-    private static final String[] ADMIN = {"/ms-user/**", "ms-rental-order/**", "/ms-car/**", "/ms-customer/**", "/ms-oauth/**"};
+    private static final String[] ADMIN = {"/ms-user/**", "/ms-car/**", "/actuator/**", "/ms-customer/actuator/**", "/ms-rental-order/actuator**", "/ms-oauth/actuator/**"};
 
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
