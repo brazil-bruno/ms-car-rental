@@ -42,7 +42,7 @@ services:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
 
-  # Kafka-Broker
+  # Broker-Kafka
   kafka:
     container_name: kafka
     image: confluentinc/cp-kafka:latest
@@ -81,6 +81,114 @@ services:
       - 19000:9000
     environment:
       KAFKA_BROKERCONNECT: kafka:29092
+
+  # MS-EUREKA-SERVER
+  ms-eureka-server:
+    image: "push here your Docker Image"
+    container_name: ms-eureka-server
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+
+  # MS-USER
+  ms-user:
+    container_name: ms-user
+    image: "push here your Docker Image"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - postgres
+      - zipkin
+
+  # MS-OAUTH
+  ms-oauth:
+    container_name: ms-oauth
+    image: "push here your Docker Image"
+    environment:
+      - OAUTH_CLIENT_NAME= add here your variable
+      - OAUTH_CLIENT_SECRET= add here your variable
+      - JWT_SECRET= add here your variable
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
+
+  # MS-CAR
+  ms-car:
+    container_name: ms-car
+    image: "push here your Docker Image"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - postgres
+      - zipkin
+
+  # MS-CUSTOMER
+  ms-customer:
+    container_name: ms-customer
+    image: "push here your Docker Image"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+    depends_on:
+      - postgres
+      - zipkin
+
+  # MS-RENTAL-ORDER
+  ms-rental-order:
+    container_name: ms-rental-order
+    image: "push here your Docker Image"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - postgres
+      - broker-kafka
+    depends_on:
+      - postgres
+      - zipkin
+      - kafka
+
+  # MS-NOTIFICATION
+  ms-notification:
+    container_name: ms-notification
+    image: "push here your Docker Image"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+      - broker-kafka
+    depends_on:
+      - zipkin
+      - kafka
+
+  # MS-API-GATEWAY
+  ms-api-gateway:
+    container_name: ms-api-gateway
+    image: "push here your Docker Image"
+    ports:
+      - "8765:8765"
+    environment:
+      - JWT_SECRET= add here your variable
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring
+    depends_on:
+      - zipkin
 
 ## Networks
 networks:
